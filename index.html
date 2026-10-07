@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cajamarca sin Contaminación</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ===== CONFIGURACIÓN GENERAL ===== */
+:root{
+  --verde-oscuro:#1B4332;
+  --verde:#2D6A4F;
+  --verde-claro:#52B788;
+  --verde-suave:#D8F3DC;
+  --crema:#FEFAE0;
+  --naranja:#F4A261;
+  --blanco:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--crema);
+  color:var(--verde-oscuro);
+  line-height:1.6;
+  scroll-behavior:smooth;
+}
+h1,h2,h3{font-family:'Outfit',sans-serif}
+
+/* ===== PORTADA ===== */
+.portada{
+  min-height:100vh;
+  background: linear-gradient(135deg, rgba(27,67,50,0.9), rgba(45,106,79,0.7)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+.portada-contenido{max-width:800px}
+.badge{
+  background:var(--verde-claro);
+  color:var(--verde-oscuro);
+  padding:8px 18px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:0.9rem;
+  display:inline-block;
+  margin-bottom:20px;
+}
+.portada h1{font-size:clamp(2.5rem, 6vw, 4rem); line-height:1.1; margin-bottom:15px}
+.portada h1 span{color:var(--verde-claro)}
+.portada p{font-size:clamp(1.1rem, 2.5vw, 1.4rem); opacity:0.9; margin-bottom:35px}
+.btn{
+  background:var(--verde-claro);
+  color:var(--verde-oscuro);
+  padding:15px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:1.1rem;
+  display:inline-block;
+  transition:0.3s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+.btn:hover{transform:translateY(-3px); background:white}
+
+/* ===== SECCIONES GENERALES ===== */
+section{padding:80px 20px}
+.contenedor{max-width:1100px; margin:0 auto}
+.titulo-seccion{text-align:center; margin-bottom:50px}
+.titulo-seccion h2{font-size:clamp(2rem, 4vw, 2.8rem); color:var(--verde-oscuro)}
+.titulo-seccion p{color:var(--verde); max-width:600px; margin:10px auto 0}
+.titulo-seccion .linea{width:80px; height:5px; background:var(--verde-claro); margin:15px auto; border-radius:10px}
+
+/* ===== TARJETAS ===== */
+.grid{display:grid; gap:25px}
+.grid-2{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit, minmax(260px, 1fr))}
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 8px 30px rgba(27,67,50,0.08);
+  border:1px solid #e9ecef;
+  transition:0.3s;
+}
+.card:hover{transform:translateY(-5px); box-shadow:0 15px 40px rgba(27,67,50,0.15)}
+.card .icono{font-size:2.5rem; margin-bottom:15px; display:block}
+.card h3{margin-bottom:10px; color:var(--verde)}
+.card p{color:#555; font-size:0.95rem}
+
+/* ===== SECCIONES CON COLOR ===== */
+.fondo-verde{background:var(--verde-oscuro); color:white}
+.fondo-verde .titulo-seccion h2, .fondo-verde .titulo-seccion p{color:white}
+.fondo-verde .linea{background:var(--verde-claro)}
+.fondo-suave{background:var(--verde-suave)}
+
+/* ===== 3R DESTACADO ===== */
+.card-3r{text-align:center; border-top:6px solid var(--verde-claro)}
+.card-3r .letra{font-size:3.5rem; font-weight:800; color:var(--verde-claro); line-height:1}
+.card-3r h3{font-size:1.6rem; margin:10px 0}
+.ejemplo{
+  background:var(--verde-suave);
+  padding:10px 15px;
+  border-radius:10px;
+  margin-top:15px;
+  font-size:0.85rem;
+  text-align:left;
+}
+
+/* ===== LISTA DE ACCIONES ===== */
+.lista-acciones{list-style:none}
+.lista-acciones li{
+  background:white;
+  margin-bottom:15px;
+  padding:18px 20px;
+  border-radius:15px;
+  display:flex;
+  gap:15px;
+  align-items:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+.lista-acciones li span:first-child{
+  background:var(--verde-suave);
+  min-width:45px; height:45px;
+  display:grid; place-items:center;
+  border-radius:50%;
+  font-size:1.3rem;
+}
+
+/* ===== COMPROMISO ===== */
+.compromiso-box{
+  background:white;
+  max-width:700px;
+  margin:0 auto;
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 15px 50px rgba(0,0,0,0.1);
+}
+.compromiso-box h3{font-size:1.8rem; margin-bottom:15px}
+.checks{text-align:left; max-width:400px; margin:25px auto}
+.checks label{
+  display:flex; gap:12px;
+  background:#f8f9fa;
+  padding:12px 15px;
+  border-radius:12px;
+  margin-bottom:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+.checks label:hover{background:var(--verde-suave)}
+.checks input{accent-color:var(--verde)}
+
+/* ===== MENSAJE FINAL ===== */
+.mensaje-final{
+  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  color:white;
+  text-align:center;
+  padding:100px 20px;
+}
+.mensaje-final h2{font-size:clamp(2rem, 5vw, 3.2rem); line-height:1.2; margin-bottom:20px}
+.mensaje-final p{font-size:1.2rem; opacity:0.9; max-width:700px; margin:0 auto 30px}
+.firma{margin-top:40px; opacity:0.7; font-size:0.9rem}
+@media(max-width:600px){section{padding:60px 15px} .compromiso-box{padding:25px}}
+</style>
+</head>
+<body>
+
+<!-- 1. PORTADA -->
+<header class="portada" id="inicio">
+  <div class="portada-contenido">
+    <div class="badge">🌱 PROYECTO EDUCATIVO - CAJAMARCA</div>
+    <h1>Cajamarca sin <span>Contaminación</span></h1>
+    <p>Pequeñas Acciones, Grandes Cambios</p>
+    <p style="font-size:1rem; font-weight:400;">Cuidar nuestra tierra, nuestro aire y nuestra agua es tarea de todos.</p>
+    <a href="#que-es" class="btn">🌎 Comenzar a Explorar</a>
+  </div>
+</header>
+
+<!-- 2. ¿QUÉ ES? -->
+<section id="que-es">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>¿Qué es la contaminación ambiental?</h2>
+      <div class="linea"></div>
+      <p>Entender el problema es el primer paso para solucionarlo.</p>
+    </div>
+    <div class="grid grid-2" style="align-items:center">
+      <div class="card" style="background:var(--verde-oscuro); color:white">
+        <span class="icono">💧🌳💨</span>
+        <h3 style="color:var(--verde-claro)">Definición sencilla</h3>
+        <p style="color:#e9ecef">La contaminación ambiental ocurre cuando el ser humano introduce sustancias o residuos que dañan el aire, el agua y el suelo. Esto altera el equilibrio natural y afecta la vida de personas, animales y plantas.</p>
+        <br>
+        <p style="color:var(--verde-claro); font-weight:600">No es un problema lejano, pasa aquí, en nuestra ciudad, en nuestro colegio y en nuestra casa.</p>
+      </div>
+      <div>
+        <div class="grid">
+          <div class="card"><span class="icono">🏭</span><h3>Contaminamos sin darnos cuenta</h3><p>Tirar una botella, quemar basura o desperdiciar agua también contamina.</p></div>
+          <div class="card"><span class="icono">⚖️</span><h3>Rompe el equilibrio</h3><p>La naturaleza puede limpiarse sola, pero cuando contaminamos demasiado, ya no puede recuperarse.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CAUSAS -->
+<section class="fondo-suave" id="causas">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Principales Causas en Nuestra Comunidad</h2>
+      <div class="linea"></div>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><span class="icono">🗑️</span><h3>1. Acumulación de Residuos Sólidos</h3><p>Botar basura en la calle, en los ríos o no separar los residuos. Los plásticos pueden tardar cientos de años en degradarse.</p></div>
+      <div class="card"><span class="icono">🔥</span><h3>2. Quema de Basura</h3><p>Quemar plástico, llantas o basura orgánica libera gases tóxicos que contaminan el aire y provocan enfermedades respiratorias.</p></div>
+      <div class="card"><span class="icono">🚰</span><h3>3. Contaminación del Agua</h3><p>Arrojar detergentes, aceites, plásticos o desagües a ríos y quebradas afecta el agua que todos necesitamos para vivir.</p></div>
+      <div class="card"><span class="icono">🚗</span><h3>4. Humo de Carros y Fábricas</h3><p>Los gases de los vehículos y algunas actividades industriales ensucian el aire que respiramos.</p></div>
+      <div class="card"><span class="icono">🌲</span><h3>5. Tala y Pérdida de Áreas Verdes</h3><p>Cortar árboles sin control y no cuidar parques reduce el oxígeno y aumenta el calor y la contaminación.</p></div>
+      <div class="card" style="background:var(--verde-oscuro); color:white"><span class="icono">💡</span><h3 style="color:var(--verde-claro)">Dato importante</h3><p style="color:#ddd">La mayoría de causas dependen de nuestras decisiones diarias. Si cambiamos nuestros hábitos, podemos reducir la contaminación.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CONSECUENCIAS -->
+<section id="consecuencias" class="fondo-verde">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>¿A quién afecta?</h2>
+      <div class="linea"></div>
+      <p>La contaminación no solo ensucia, también enferma y destruye.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><span class="icono">🧑‍⚕️</span><h3>En la Salud Humana</h3><p>Provoca alergias, asma, problemas en los pulmones, infecciones estomacales por agua sucia y enfermedades en la piel.</p></div>
+      <div class="card"><span class="icono">🐦</span><h3>En los Animales</h3><p>Los animales confunden el plástico con comida, se enredan en la basura y pierden su hogar por la contaminación de ríos y suelos.</p></div>
+      <div class="card"><span class="icono">🌿</span><h3>En las Plantas y el Suelo</h3><p>El suelo contaminado deja de ser fértil. Las plantas crecen débiles o mueren, afectando la agricultura.</p></div>
+      <div class="card"><span class="icono">💧</span><h3>En el Agua</h3><p>Ríos y manantiales se vuelven no aptos para consumo. El agua contaminada afecta a toda la comunidad.</p></div>
+      <div class="card"><span class="icono">🏘️</span><h3>En Nuestro Entorno</h3><p>Calles sucias, malos olores, paisajes deteriorados y una ciudad menos acogedora para vivir y estudiar.</p></div>
+      <div class="card" style="background:var(--verde-claro)"><span class="icono">🔄</span><h3 style="color:var(--verde-oscuro)">Todo está conectado</h3><p style="color:var(--verde-oscuro)">Si se contamina el agua, se contamina el suelo. Si se contamina el aire, nos enfermamos todos. Cuidar uno es cuidar todo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. LAS 3R -->
+<section id="tres-r">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>La Solución: Las 3R</h2>
+      <div class="linea"></div>
+      <p>Una regla simple que puedes aplicar desde hoy.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-3r">
+        <div class="letra">R</div>
+        <h3>Reducir</h3>
+        <p>Usar solo lo necesario para generar menos basura.</p>
+        <div class="ejemplo"><strong>Ejemplos:</strong><br>• Lleva tu tomatodo, no compres botellas plásticas.<br>• Di no a las bolsas plásticas.<br>• Usa solo el papel que necesites.</div>
+      </div>
+      <div class="card card-3r">
+        <div class="letra">R</div>
+        <h3>Reutilizar</h3>
+        <p>Darle una segunda vida a los objetos antes de botarlos.</p>
+        <div class="ejemplo"><strong>Ejemplos:</strong><br>• Usa las hojas por ambos lados.<br>• Convierte frascos en lapiceros.<br>• Dona la ropa que ya no usas.</div>
+      </div>
+      <div class="card card-3r">
+        <div class="letra">R</div>
+        <h3>Reciclar</h3>
+        <p>Transformar los residuos en nuevos productos.</p>
+        <div class="ejemplo"><strong>Ejemplos:</strong><br>• Separa plástico, papel y orgánico.<br>• Haz compost con restos de frutas.<br>• Lleva botellas a puntos de reciclaje.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. QUÉ PODEMOS HACER -->
+<section class="fondo-suave" id="acciones">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>¿Qué podemos hacer tú y yo?</h2>
+      <div class="linea"></div>
+      <p>Acciones pequeñas que sí hacen la diferencia.</p>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <h3 style="margin-bottom:15px">🏠 En Casa</h3>
+        <ul class="lista-acciones">
+          <li><span>🚿</span><div><strong>Ahorra agua:</strong> Cierra el caño al cepillarte y reporta fugas.</div></li>
+          <li><span>💡</span><div><strong>Ahorra energía:</strong> Apaga luces y desconecta cargadores.</div></li>
+          <li><span>🗂️</span><div><strong>Separa tu basura:</strong> Ten 3 tachos: orgánico, reciclable y no reciclable.</div></li>
+          <li><span>🌱</span><div><strong>Planta vida:</strong> Cuida una planta o un pequeño huerto.</div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom:15px">🏫 En el Colegio</h3>
+        <ul class="lista-acciones">
+          <li><span>🎒</span><div><strong>Lleva lonchera sostenible:</strong> Evita tecnopor y plásticos de un solo uso.</div></li>
+          <li><span>📄</span><div><strong>Recicla papel:</strong> Crea un rincón de reciclaje en tu aula.</div></li>
+          <li><span>🧹</span><div><strong>Mantén limpio tu espacio:</strong> No ensucies patios ni baños, son de todos.</div></li>
+          <li><span>📢</span><div><strong>Sé un ejemplo:</strong> Invita a tus amigos a cuidar el ambiente.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. COMPROMISO -->
+<section id="compromiso">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Mi Compromiso Ambiental</h2>
+      <div class="linea"></div>
+      <p>No basta con saber, hay que actuar. ¡Elige tu compromiso!</p>
+    </div>
+    <div class="compromiso-box">
+      <h3>Yo, estudiante cajamarquino, me comprometo a:</h3>
+      <div class="checks">
+        <label><input type="checkbox"> No arrojar basura en la calle ni en los ríos</label>
+        <label><input type="checkbox"> Reducir mi uso de plástico de un solo uso</label>
+        <label><input type="checkbox"> Separar mis residuos y reciclar en casa y colegio</label>
+        <label><input type="checkbox"> Cuidar el agua y las áreas verdes</label>
+        <label><input type="checkbox"> Enseñar a mi familia y amigos a cuidar el ambiente</label>
+      </div>
+      <a href="#" class="btn" onclick="alert('¡Excelente! Tu compromiso ya está guardado en tu corazón y en tus acciones. ¡Gracias por cuidar Cajamarca! 🌎'); return false;">✅ ¡Yo me comprometo!</a>
+      <p style="margin-top:20px; color:#666; font-size:0.9rem">Marca tus compromisos y haz clic. Tu cambio inspira a otros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. MENSAJE FINAL -->
+<footer class="mensaje-final">
+  <div class="contenedor">
+    <h2>Cajamarca no necesita superhéroes,<br>necesita estudiantes responsables como tú.</h2>
+    <p>Una botella menos, un árbol más, un caño cerrado... Cada pequeña acción que haces hoy, se convierte en un gran cambio para el mañana de todos.</p>
+    <div style="font-size:3rem; margin:20px 0">🌎💚🌱</div>
+    <p style="font-weight:700; font-size:1.3rem; color:var(--verde-claro)">Pequeñas Acciones, Grandes Cambios</p>
+    <div class="firma">Proyecto Educativo - Ciencia y Tecnología | Cajamarca, Perú - 2026<br>Hecho por estudiantes para estudiantes</div>
+  </div>
+</footer>
+
+</body>
+</html>
